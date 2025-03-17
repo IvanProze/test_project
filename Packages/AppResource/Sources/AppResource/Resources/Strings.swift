@@ -1,6 +1,14 @@
 import Foundation
 
 public enum Strings {
+    public static let microphoneAlertTitle = label("Enable Microphone Access")
+    public static let microphoneAlertMessage = label("Please allow access to your mircophone to use the app’s features")
+    public static let cancel = label("Cancel")
+    public static let settings = label("Settings")
+    
+    public static let featureAlertTitle = label("Feature Coming Soon")
+    public static let featureAlertMessage = label("This feature will be added soon")
+    public static let ok = label("Ok")
     
     public enum TabBar {
         public static let setting = label("Setting")

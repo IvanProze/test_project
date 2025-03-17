@@ -1,4 +1,5 @@
 import UIKit
+import AppResource
 
 final public class NavigationService: NSObject {
     var tabBarViewController: TabBarViewController? = nil
@@ -47,9 +48,9 @@ final public class NavigationService: NSObject {
 extension NavigationService {
     func presentMicrophoneSettingsAlert() {
         guard let topVC = topViewController else { return }
-        let alert = UIAlertController(title: "Enable Microphone Access", message: "Please allow access to your mircophone to use the app’s features", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "Settings", style: .default, handler: { _ in
+        let alert = UIAlertController(title: Strings.microphoneAlertTitle, message: Strings.microphoneAlertMessage, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: Strings.cancel, style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: Strings.settings, style: .default, handler: { _ in
             guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else { return }
             if UIApplication.shared.canOpenURL(settingsUrl) {
                 UIApplication.shared.open(settingsUrl, options: [:], completionHandler: nil)
@@ -61,11 +62,11 @@ extension NavigationService {
     func presentFeatureComingSoonAlert() {
         guard let topVC = topViewController else { return }
         let alert = UIAlertController(
-            title: "Feature Coming Soon",
-            message: "This feature will be added soon.",
+            title: Strings.featureAlertTitle,
+            message: Strings.featureAlertMessage,
             preferredStyle: .alert
         )
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: Strings.ok, style: .default, handler: nil))
         topVC.present(alert, animated: true, completion: nil)
     }
     
